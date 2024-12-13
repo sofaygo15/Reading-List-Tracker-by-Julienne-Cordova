@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book Status</title>
+    <style>
+        body {
+            background-color: #f4e1d2;
+            font-family: Arial, sans-serif;
+            color: #5b3925;
+        }
+        h1 {
+            color: #d17133;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .button {
+            background-color: #d17133;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #c35f2e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Status for "{{ book.title }}"</h1>
+    <div class="form-container">
+        <form method="POST">
+            <label for="status">Status</label>
+            <select id="status" name="status">
+                <option value="to-read" {% if book.status == 'to-read' %} selected {% endif %}>To Read</option>
+                <option value="read" {% if book.status == 'read' %} selected {% endif %}>Read</option>
+            </select>
+
+            <button type="submit" class="button">Update Status</button>
+        </form>
+    </div>
+</body>
+</html>
